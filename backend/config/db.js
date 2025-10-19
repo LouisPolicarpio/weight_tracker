@@ -5,7 +5,7 @@ dotenv.config();
 
 const {NEON_DB_URL} = process.env;
 
-export const sql = neon(
+export  const sql = neon(
   NEON_DB_URL,
 );
 

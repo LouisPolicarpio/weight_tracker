@@ -1,0 +1,17 @@
+import axios from "axios";
+
+const API_URL = import.meta.env.VITE_API_URL + "/log"; 
+export const getAllLogs = async () => {
+  const res = await axios.get(API_URL);
+  return res.data;
+};
+
+export const createLog = async (newLog) => {
+  const res = await axios.post(API_URL, newLog);
+  return res.data;
+};
+
+export const updateLog = async (id, updatedData) => {
+  const res = await axios.put(`${API_URL}/${id}`, updatedData);
+  return res.data;
+};
