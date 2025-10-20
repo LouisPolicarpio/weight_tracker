@@ -58,10 +58,35 @@ export const updateLog = async (req, res) => {
         }
 
         console.log('update log succeeded');
-        res.status(200).json({success:true, data:logs});
+        res.status(200).json({success:true, data:logs[0]});
     
    } catch (error) {
-        console.log('get all logs failed');
+        console.log('update logs failed');
+        res.status(500).json({ success: false, error: error.message });   
+    } 
+   
+}
+
+
+export const deleteLog = async (req, res) => {
+    const {id} = req.params;
+
+    try {
+        const logs = await sql`
+            DELETE FROM log 
+            WHERE id = ${id}
+            RETURNING *;
+        `;
+
+        if (logs.length === 0) {
+            return res.status(404).json({ success: false, error: 'Log not found' });
+        }
+
+        console.log('deleted log success');
+        res.status(200).json({success:true, data: logs[0]});
+    
+   } catch (error) {
+        console.log('delete log failed');
         res.status(500).json({ success: false, error: error.message });   
     } 
    

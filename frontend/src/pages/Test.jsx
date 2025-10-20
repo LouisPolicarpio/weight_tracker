@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react';
+import Modal from '../components/Modal';
+import CreateLog from '../components/CreateLogForm';
 
 function Test() {
+  const [modalOpen, setModalOpen] = useState(false); // true = modal visible initially
+
   return (
-    <div className="w-full px-40 py-5 min-w-max ">
-      <div className="p-2 w-full overflow-hidden flex items-center justify-center border-2 rounded-2xl border-gray-300">
-      
-      </div>
+    <div>
+      <button onClick={() => setModalOpen(true)}> test </button>
+      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+        <CreateLog/>
+      </Modal>
     </div>
-  )
+  );
 }
 
-export default Test
+export default Test;

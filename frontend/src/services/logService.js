@@ -13,5 +13,10 @@ export const createLog = async (newLog) => {
 
 export const updateLog = async (id, updatedData) => {
   const res = await axios.put(`${API_URL}/${id}`, updatedData);
+  return res.data.data;
+};
+
+export const deleteLog = async (id) => {
+  const res = await axios.delete(`${API_URL}/${id}`);
   return res.data;
 };

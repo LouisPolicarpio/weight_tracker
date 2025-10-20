@@ -1,6 +1,7 @@
 import React from 'react'
 import LogDisplay from '../components/LogDisplay'
 import CreateLog from '../components/CreateLogForm'
+import EditLogForm from '../components/edit/EditLogForm'
 function Home() {
   return (
 

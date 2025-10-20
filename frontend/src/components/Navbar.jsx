@@ -21,6 +21,11 @@ function Navbar() {
             <HomeIcon/>
           </Link>
 
+          <Link to='/Edit' className={`${isActive('/edit')}`}>
+            <h1>Edit</h1>
+          </Link>
+
+
           <Link to='/test' className={`${isActive('/test')}`}>
             <h1>Test</h1>
           </Link>
@@ -38,6 +43,11 @@ function Navbar() {
         <div className="md:hidden bg-blue-700 flex justify-evenly items-center p-1"> 
           <Link to='/' className={`${isActive('/')}`}>
             <HomeIcon/>
+          </Link>
+
+          
+          <Link to='/edit' className={`${isActive('/edit')}`}>
+            <h1>Edit</h1>
           </Link>
 
           <Link to='/test' className={`${isActive('/test')}`}>
