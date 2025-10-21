@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="w-full overflow-x-hidden ">
         <BrowserRouter>
           <Navbar />
           <AppRoutes/>

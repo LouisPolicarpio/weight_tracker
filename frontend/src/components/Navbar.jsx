@@ -10,10 +10,9 @@ function Navbar() {
 
   return (
 
-    <nav className="bg-blue-600 text-white shadow-md">
+    <nav className="w-full bg-blue-600 text-white shadow-md">
 
-      <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">        
-
+<div className="mx-auto px-4 py-2 flex items-center justify-between max-w-full">
 
         {/* desktop*/}
         <div className='hidden md:flex space-x-6 ${}'> 

@@ -1,18 +1,18 @@
 import React from 'react';
 import { X } from 'lucide-react';
 
-function Modal({ isOpen, onClose, children, style = 'sm:w-3/4 md:w-1/2 max-w-md' }) {
+function Modal({ isOpen, onClose, children }) {
     if (!isOpen) return null;
 
     const handleContentClick = (e) => e.stopPropagation();
 
     return (
         <div
-            className="fixed inset-0 bg-black/50 flex items-center justify-center "
+            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
             onClick={onClose}
         >
             <div
-                className={`relative rounded-2xl bg-white shadow-lg ${style} p-6`}
+                className="relative rounded-2xl bg-white shadow-lg  sm:w-3/4 md:w-2/3 lg:w-1/2 max-w-md   p-4 sm:p-6 mx-2"
                 onClick={handleContentClick}
             >
                 <button
