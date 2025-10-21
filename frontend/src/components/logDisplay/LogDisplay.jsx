@@ -1,19 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { getAllLogs } from "../services/logService";
+import React from "react";
 import { LoaderCircle } from "lucide-react";
-import Card from "./Card";
+import Card from "../Card";
 
-function LogDisplay() {
-  const [logs, setLogs] = useState([]);
-  const [loading, setLoading] = useState(false);
+function LogDisplay({data=[], loading=false}) {
 
-  useEffect(() => {
-    setLoading(true);
-    getAllLogs()
-      .then((res) => setLogs(res.data || []))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  }, []);
+  console.log(data)
+
 
   if (loading) {
     return (
@@ -23,7 +15,7 @@ function LogDisplay() {
     );
   }
 
-  if (!logs.length) {
+  if (!data.length) {
     return (
       <Card>
         <p>No Results Found</p>
@@ -41,7 +33,7 @@ function LogDisplay() {
           </tr>
         </thead>
         <tbody >
-          {logs.map((log) => (
+          {data.map((log) => (
             <tr key={log.id} className="border-t border-gray-300 ">
                   <td>{new Date(log.created_at).toLocaleDateString('en-AU')}</td>
                   <td>{log.weight}</td>
