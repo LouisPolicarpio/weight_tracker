@@ -4,7 +4,6 @@ import Card from "../Card";
 
 function LogDisplay({data=[], loading=false}) {
 
-  console.log(data)
 
 
   if (loading) {
@@ -25,7 +24,7 @@ function LogDisplay({data=[], loading=false}) {
 
   return (
     <Card>
-      <table className="table-auto w-full text-center min-w-max">
+      <table className="table-auto  w-full text-center min-w-max">
         <thead>
           <tr>
             <th>Date</th>

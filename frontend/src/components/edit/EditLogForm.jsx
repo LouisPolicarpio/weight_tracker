@@ -69,7 +69,7 @@ function EditLogForm() {
             </Modal>
 
             {/* Logs Table */}
-            <Card className="w-full max-w-md overflow-x-auto">
+            <Card>
                 <table className="table-auto w-full text-center">
                     <thead>
                         <tr>

@@ -4,6 +4,7 @@ import CreateLog from '../components/CreateLogForm'
 import EditLogForm from '../components/edit/EditLogForm'
 import { useState, useEffect } from 'react'
 import { getAllLogs } from '../services/logService'
+import Graph from '../components/logDisplay/graph'
 
 
 function Home() {
@@ -19,7 +20,7 @@ function Home() {
     .finally(() => setLoading(false));
   }, []);
 
-      return (
+    return (
 
 
       <div className='flex flex-col items-center gap-4'>
@@ -28,6 +29,8 @@ function Home() {
 
 
       <LogDisplay data={logs} loading={loading} />
+      <Graph logs={logs} loading={loading}/>
+
       <CreateLog/>
     </div>
   )
