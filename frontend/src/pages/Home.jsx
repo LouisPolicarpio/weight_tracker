@@ -1,20 +1,21 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import LogDisplay from '../components/logDisplay/LogDisplay';
-import CreateLog from '../components/CreateLogForm';
-import EditLogForm from '../components/edit/EditLogForm';
-import Graph from '../components/logDisplay/graph';
-import Toggle from '../components/Toggle';
-import { getAllLogs } from '../services/logService';
-import { groupLogsByMode, filterLogs } from '../components/utils/formatLogs.js';
+import React, { useState, useEffect, useMemo } from "react";
+
+import LogDisplay from "../components/logComponents/logDisplay/LogDisplay.jsx";
+import CreateLog from "../components/logComponents/CreateLogForm.jsx";
+import Graph from "../components/logComponents/logDisplay/Graph.jsx";
+
+import Toggle from "../components/Toggle";
+import { getAllLogs } from "../services/logService";
+import { groupLogsByMode, filterLogs } from "../components/utils/formatLogs.js";
 
 function Home() {
   const [logs, setLogs] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [period, setPeriod] = useState('day');
+  const [period, setPeriod] = useState("day");
   const [startDate, setStartDate] = useState(null); // e.g., '2025-11-01'
-  const [endDate, setEndDate] = useState(null);     // e.g., '2025-11-30'
-  
-  const periods = ['day', 'week', 'month', 'year'];
+  const [endDate, setEndDate] = useState(null); // e.g., '2025-11-30'
+
+  const periods = ["day", "week", "month", "year"];
 
   useEffect(() => {
     const loadLogs = async () => {
@@ -28,7 +29,7 @@ function Home() {
         setLoading(false);
       }
     };
-    
+
     loadLogs();
   }, []);
 
@@ -43,34 +44,32 @@ function Home() {
   }, [filteredLogs, period]);
 
   return (
-    <div className='flex flex-col items-center gap-4'>
-
+    <div className="flex flex-col items-center gap-4">
       {/* Period Toggle */}
-      <div className='flex flex-row items-center gap-x-3'>
-        <p className='text-lg'>Average per:</p>
+      <div className="flex flex-row items-center gap-x-3">
+        <p className="text-lg">Average per:</p>
         <Toggle modes={periods} mode={period} setMode={setPeriod} />
       </div>
 
       {/* Optional: Date filters */}
-      <div className='flex gap-2'>
-        <div className=' border' >
+      <div className="flex gap-2">
+        <div className=" border">
           <label>start:</label>
-          <input 
-            type="date" 
-            value={startDate || ''} 
-            onChange={e => setStartDate(e.target.value)} 
+          <input
+            type="date"
+            value={startDate || ""}
+            onChange={(e) => setStartDate(e.target.value)}
           />
         </div>
 
-        <div className=' border border-rounded'>
+        <div className=" border border-rounded">
           <label>end:</label>
-          <input 
-            type="date" 
-            value={endDate || ''} 
-            onChange={e => setEndDate(e.target.value)} 
+          <input
+            type="date"
+            value={endDate || ""}
+            onChange={(e) => setEndDate(e.target.value)}
           />
         </div>
-        
       </div>
 
       {/* Log display and graph */}

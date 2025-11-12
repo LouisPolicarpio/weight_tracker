@@ -4,7 +4,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import logRoutes from './routes/logRoutes.js';
-
+import dietPlanRoutes from  './routes/dietPlanRoutes.js'
 import { initDB } from './config/initDB.js';
 
 dotenv.config();
@@ -31,6 +31,7 @@ app.use(cors({
 
 // Routes
 app.use('/api/log', logRoutes);
+app.use('/api/dietPlan', dietPlanRoutes);
 
 
 initDB().then(() => {

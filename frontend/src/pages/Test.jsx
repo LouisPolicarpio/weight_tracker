@@ -1,11 +1,9 @@
-import Modal from '../components/Modal';
-import CreateLog from '../components/CreateLogForm';
+import DietCreateForm from "../components/dietPlanComponents/DietCreateForm";
 
 function Test() {
-
   return (
-    <div className='m-x'>
-
+    <div className="m-x">
+      <DietCreateForm />
     </div>
   );
 }

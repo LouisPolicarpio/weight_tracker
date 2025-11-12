@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   LineChart,
   Line,
@@ -8,20 +8,17 @@ import {
   ResponsiveContainer,
   CartesianGrid,
   ReferenceLine,
-} from 'recharts';
+} from "recharts";
 import { LoaderCircle } from "lucide-react";
 
-import Card from '../Card';
+import Card from "../../Card";
 
 function Graph({ logs = [], loading = false }) {
-
   // Map logs to chart-friendly format
-  const data = logs.map(log => ({
+  const data = logs.map((log) => ({
     date: new Date(log.created_at).getTime(),
     weight: log.weight,
   }));
-
-
 
   if (loading) {
     return (
@@ -59,10 +56,8 @@ function Graph({ logs = [], loading = false }) {
               (dataMin) => dataMin,
               (dataMax) => dataMax + 24 * 60 * 60 * 1000, // Add 1 day padding
             ]}
-            tickFormatter={(date) =>
-              new Date(date).toLocaleDateString('en-AU')
-            }
-            tick={{ angle: -30, textAnchor: 'end' }}
+            tickFormatter={(date) => new Date(date).toLocaleDateString("en-AU")}
+            tick={{ angle: -30, textAnchor: "end" }}
           />
 
           {/* Y-axis */}
@@ -71,7 +66,7 @@ function Graph({ logs = [], loading = false }) {
             type="number"
             domain={[
               (min) => Math.floor(min - 5), // padding below min
-              (max) => Math.ceil(max + 5),  // padding above max
+              (max) => Math.ceil(max + 5), // padding above max
             ]}
             tickFormatter={(weight) => `${weight} kg`}
           />
@@ -79,15 +74,18 @@ function Graph({ logs = [], loading = false }) {
           {/* Tooltip */}
           <Tooltip
             labelFormatter={(date) =>
-              new Date(date).toLocaleDateString('en-AU')
+              new Date(date).toLocaleDateString("en-AU")
             }
-            formatter={(value) => [`${value} kg`, 'Weight']}
+            formatter={(value) => [`${value} kg`, "Weight"]}
           />
 
-      
-
           {/* Main data line */}
-          <Line type="monotone" dataKey="weight" stroke="#155dfc" strokeWidth={2}/>
+          <Line
+            type="monotone"
+            dataKey="weight"
+            stroke="#155dfc"
+            strokeWidth={2}
+          />
         </LineChart>
       </ResponsiveContainer>
     </Card>
