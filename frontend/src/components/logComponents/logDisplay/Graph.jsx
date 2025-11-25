@@ -9,8 +9,7 @@ import {
   CartesianGrid,
   ReferenceLine,
 } from "recharts";
-import { LoaderCircle } from "lucide-react";
-
+import Loading from "../../Loading";
 import Card from "../../Card";
 
 function Graph({ logs = [], loading = false }) {
@@ -23,7 +22,7 @@ function Graph({ logs = [], loading = false }) {
   if (loading) {
     return (
       <Card>
-        <LoaderCircle className="animate-spin text-blue-500 w-10 h-10" />
+        <Loading />
       </Card>
     );
   }

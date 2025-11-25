@@ -1,11 +1,11 @@
 import { LoaderCircle } from "lucide-react";
 import Card from "../../Card";
-
+import Loading from "../../Loading";
 function LogDisplay({ data = [], loading = false }) {
   if (loading) {
     return (
       <Card>
-        <LoaderCircle className="animate-spin text-blue-500 w-10 h-10" />
+        <Loading />
       </Card>
     );
   }
